@@ -1,4 +1,5 @@
 import sys
+import time
 from typing import Tuple, Optional
 
 import pygame
@@ -63,6 +64,14 @@ class Game:
             shape=(self.board_size, self.board_size),
             dtype=np.int8
         )
+        start_time = time.time()  # Start measuring time
+
+        self.run_turn()
+
+        end_time = time.time()  # Stop measuring time
+        elapsed_time = end_time - start_time
+
+        print(f"Time taken for the game: {elapsed_time} seconds")
 
     def print_game_info(self, args) -> None:
         """
